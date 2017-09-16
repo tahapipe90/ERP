@@ -1,0 +1,9 @@
+SELECT patient.name,apt_date,doctor.name FROM patient,doctor_days WHERE dayname(apt_date) in( SELECT dayname FROM doctor,`doctor_days` WHERE doctor.vid=doctor_days.vid)
+
+
+final ans
+SELECT name,apt_date,dname FROM patient,doctor WHERE dayname(apt_date) in( SELECT dayname FROM doctor,`doctor_days` WHERE doctor.vid=doctor_days.vid) AND dept in ( SELECT dept FROM doctor,`doctor_days` WHERE doctor.vid=doctor_days.vid)
+
+
+finallest correct ans is
+SELECT name,apt_date,dname FROM patient,doctor WHERE dayname(apt_date) in( SELECT dayname FROM doctor,`doctor_days` WHERE doctor.vid=doctor_days.vid) AND department in ( SELECT dept FROM doctor,`doctor_days` WHERE doctor.vid=doctor_days.vid)
